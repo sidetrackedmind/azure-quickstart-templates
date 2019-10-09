@@ -161,10 +161,7 @@
               },
               "storageProfile": {
                   "imageReference": {
-                      "publisher": "[variables('imagePublisher')]",
-                      "offer": "[variables('imageOffer')]",
-                      "sku": "[variables('ubuntuOSVersion')]",
-                      "version": "latest"
+                      "id": "/subscriptions/5a2b4b73-1a46-4efb-9c70-45a1c84e6497/resourceGroups/ben_ai4e_officehours_vm_image/providers/Microsoft.Compute/images/officehour-vm1-image-with-r"
                   },
                   "osDisk": {
                       "name": "[concat(variables('vmNameMaster'),'_OSDisk')]",
@@ -259,10 +256,7 @@
               },
               "storageProfile": {
                   "imageReference": {
-                      "publisher": "[variables('imagePublisher')]",
-                      "offer": "[variables('imageOffer')]",
-                      "sku": "[variables('ubuntuOSVersion')]",
-                      "version": "latest"
+                      "id": "/subscriptions/5a2b4b73-1a46-4efb-9c70-45a1c84e6497/resourceGroups/ben_ai4e_officehours_vm_image/providers/Microsoft.Compute/images/officehour-vm1-image-with-r"
                   },
                   "osDisk": {
                       "name": "[concat(variables('vmNameWorker'), copyindex(),'_OSDisk')]",
