@@ -66,7 +66,8 @@ done
 # Install the package
 sudo apt-get update >> /tmp/azuredeploy.log.$$ 2>&1
 sudo chmod g-w /var/log >> /tmp/azuredeploy.log.$$ 2>&1 # Must do this before munge will generate key
-sudo apt-get install slurm-llnl -y >> /tmp/azuredeploy.log.$$ 2>&1
+sudo apt-get install slurm-wlm -y >> /tmp/azuredeploy.log.$$ 2>&1
+sudo apt-get install slurm-wlm-doc -y >> /tmp/azuredeploy.log.$$ 2>&1
 
 # Download slurm.conf and fill in the node info
 SLURMCONF=/tmp/slurm.conf.$$
