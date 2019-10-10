@@ -264,6 +264,7 @@
                       "caching": "ReadWrite",
                       "createOption": "FromImage",
                       "managedDisk": {
+                          "id": "/subscriptions/5a2b4b73-1a46-4efb-9c70-45a1c84e6497/resourceGroups/ben_ai4e_officehours_vm_image/providers/Microsoft.Compute/disks/officehour-vm1_disk1_0118bcc835d445f395e33fd9de9c3fc8",
                           "storageAccountType": "Standard_LRS"
                       }
                   }
