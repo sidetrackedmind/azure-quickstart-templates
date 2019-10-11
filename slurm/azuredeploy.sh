@@ -45,7 +45,7 @@ fi
 
 # Install aptdcon to manage package installs
 echo "installing aptdaemon" >> /tmp/azuredeploy.log.$$ 2>&1
-sudo apt install aptdaemon -y >> /tmp/azuredeploy.log.$$ 2>&1
+sudo apt-get install aptdaemon -y >> /tmp/azuredeploy.log.$$ 2>&1
 
 #sleep to finish installing aptdaemon
 echo "sleep started" >> /tmp/azuredeploy.log.$$ 2>&1
