@@ -114,8 +114,10 @@ do
    sudo -u $ADMIN_USERNAME ssh $ADMIN_USERNAME@$worker >> /tmp/azuredeploy.log.$$ 2>&1 << 'ENDSSH1'
       sudo sh -c "cat /tmp/hosts >> /etc/hosts"
       sudo chmod g-w /var/log
-      sudo apt-get update
-      sudo apt-get install slurm-llnl -y
+      sudo apt-get install aptdaemon -y
+      sleep 15s
+      yes | sudo aptdcon --hide-terminal --install "update"
+      yes | sudo aptdcon --hide-terminal --install "slurm-llnl"
       sudo cp -f /tmp/munge.key /etc/munge/munge.key
       sudo chown munge /etc/munge/munge.key
       sudo chgrp munge /etc/munge/munge.key
