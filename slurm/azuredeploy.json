@@ -161,7 +161,7 @@
               },
               "storageProfile": {
                   "imageReference": {
-                      "id": "/subscriptions/5a2b4b73-1a46-4efb-9c70-45a1c84e6497/resourceGroups/ben-ai4e-vm-ubuntu-1604-w-r-group/providers/Microsoft.Compute/images/ben-ai4e-vm-ubuntu-1604-w-r"
+                      "id": "/subscriptions/5a2b4b73-1a46-4efb-9c70-45a1c84e6497/resourceGroups/ben-ai4e-vm-ubuntu-1604-w-r-group/providers/Microsoft.Compute/images/ben-ai4e-vm-ubuntu-1604-w-r-v2"
                   },
                   "osDisk": {
                       "name": "[concat(variables('vmNameMaster'),'_OSDisk')]",
@@ -256,7 +256,7 @@
               },
               "storageProfile": {
                   "imageReference": {
-                      "id": "/subscriptions/5a2b4b73-1a46-4efb-9c70-45a1c84e6497/resourceGroups/ben-ai4e-vm-ubuntu-1604-w-r-group/providers/Microsoft.Compute/images/ben-ai4e-vm-ubuntu-1604-w-r"
+                      "id": "/subscriptions/5a2b4b73-1a46-4efb-9c70-45a1c84e6497/resourceGroups/ben-ai4e-vm-ubuntu-1604-w-r-group/providers/Microsoft.Compute/images/ben-ai4e-vm-ubuntu-1604-w-r-v2"
                   },
                   "osDisk": {
                       "name": "[concat(variables('vmNameWorker'), copyindex(),'_OSDisk')]",
