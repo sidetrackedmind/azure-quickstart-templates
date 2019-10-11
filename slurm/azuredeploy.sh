@@ -44,7 +44,7 @@ if ! [ -f /home/$ADMIN_USERNAME/.ssh/id_rsa ]; then
 fi
 
 # Install aptdcon to manage package installs
-echo "installing aptdaemon" >> >> /tmp/azuredeploy.log.$$ 2>&1
+echo "installing aptdaemon" >> /tmp/azuredeploy.log.$$ 2>&1
 sudo apt install aptdaemon -y
 
 # Install sshpass to automate ssh-copy-id action
