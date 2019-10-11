@@ -38,13 +38,17 @@ echo $MASTER_IP $MASTER_NAME > /tmp/hosts.$$
 # Note all settings are for azureuser, NOT root
 sudo -u $ADMIN_USERNAME sh -c "mkdir /home/$ADMIN_USERNAME/.ssh/;echo Host worker\* > /home/$ADMIN_USERNAME/.ssh/config; echo StrictHostKeyChecking no >> /home/$ADMIN_USERNAME/.ssh/config; echo UserKnownHostsFile=/dev/null >> /home/$ADMIN_USERNAME/.ssh/config"
 
-# Generate a set of sshkey under /honme/azureuser/.ssh if there is not one yet
+# Generate a set of sshkey under /home/azureuser/.ssh if there is not one yet
 if ! [ -f /home/$ADMIN_USERNAME/.ssh/id_rsa ]; then
     sudo -u $ADMIN_USERNAME sh -c "ssh-keygen -f /home/$ADMIN_USERNAME/.ssh/id_rsa -t rsa -N ''"
 fi
 
+# Install aptdcon to manage package installs
+echo "installing aptdaemon" >> >> /tmp/azuredeploy.log.$$ 2>&1
+sudo apt install aptdaemon -y
+
 # Install sshpass to automate ssh-copy-id action
-sudo apt-get install sshpass -y >> /tmp/azuredeploy.log.$$ 2>&1
+yes | sudo aptdcon --hide-terminal --install "sshpass" >> /tmp/azuredeploy.log.$$ 2>&1
 
 # Loop through all worker nodes, update hosts file and copy ssh public key to it
 # The script make the assumption that the node is called %WORKER+<index> and have
@@ -64,9 +68,9 @@ done
 ###################################
 
 # Install the package
-sudo apt-get update >> /tmp/azuredeploy.log.$$ 2>&1
+yes | sudo aptdcon --hide-terminal --install "update" >> /tmp/azuredeploy.log.$$ 2>&1
 sudo chmod g-w /var/log >> /tmp/azuredeploy.log.$$ 2>&1 # Must do this before munge will generate key
-sudo apt-get install slurm-llnl -y >> /tmp/azuredeploy.log.$$ 2>&1
+yes | sudo aptdcon --hide-terminal --install "slurm-llnl" >> /tmp/azuredeploy.log.$$ 2>&1
 
 # Download slurm.conf and fill in the node info
 SLURMCONF=/tmp/slurm.conf.$$
