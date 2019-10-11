@@ -43,18 +43,7 @@ if ! [ -f /home/$ADMIN_USERNAME/.ssh/id_rsa ]; then
     sudo -u $ADMIN_USERNAME sh -c "ssh-keygen -f /home/$ADMIN_USERNAME/.ssh/id_rsa -t rsa -N ''"
 fi
 
-#start by clearing the lock file
-sudo rm -f /var/lib/dpkg/lock
-sudo dpkg --configure -a
-
-# Install aptdcon to manage package installs
-echo "installing aptdaemon" >> /tmp/azuredeploy.log.$$ 2>&1
-sudo apt-get install aptdaemon -y >> /tmp/azuredeploy.log.$$ 2>&1
-
-#sleep to finish installing aptdaemon
-echo "sleep started" >> /tmp/azuredeploy.log.$$ 2>&1
-sleep 15s
-echo "sleep done" >> /tmp/azuredeploy.log.$$ 2>&1
+#Note: I installed aptdcon to the generic image
 
 # Install sshpass to automate ssh-copy-id action
 yes | sudo aptdcon --hide-terminal --install "sshpass" >> /tmp/azuredeploy.log.$$ 2>&1
