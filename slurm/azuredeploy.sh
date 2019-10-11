@@ -45,7 +45,12 @@ fi
 
 # Install aptdcon to manage package installs
 echo "installing aptdaemon" >> /tmp/azuredeploy.log.$$ 2>&1
-sudo apt install aptdaemon -y
+sudo apt install aptdaemon -y >> /tmp/azuredeploy.log.$$ 2>&1
+
+#sleep to finish installing aptdaemon
+echo "sleep started" >> /tmp/azuredeploy.log.$$ 2>&1
+sleep 15s
+echo "sleep done" >> /tmp/azuredeploy.log.$$ 2>&1
 
 # Install sshpass to automate ssh-copy-id action
 yes | sudo aptdcon --hide-terminal --install "sshpass" >> /tmp/azuredeploy.log.$$ 2>&1
